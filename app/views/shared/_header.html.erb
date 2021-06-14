@@ -1,0 +1,50 @@
+<header id="header">
+    <h1 class="main-header">イエコミ！</h1>
+    <nav>
+    <ul>
+      <li><a href="#">Top</a></li>
+      <li><a href="#">About</a></li>
+      <li class="has-child"><a href="#">物件一覧</a>
+        <ul>
+        <li><a href="#">Service Top</a></li>
+        <li><a href="#">Service-1</a></li>
+        <li class="has-child"><a href="#">Service-2</a>
+          <ul>
+            <li><a href="#">Service-2 Top</a></li>
+            <li><a href="#">Service-2-1</a></li>
+            <li><a href="#">Service-2-2</a></li>
+            <li><a href="#">Service-2-3</a></li>
+            <li><a href="#">Service-2-4</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Service-3</a></li>
+        </ul>
+      </li>
+      <li class="has-child"><a href="#">新規登録</a>
+        <ul>
+        <li><%= link_to "オーナー", new_owner_registration_path %></li>
+        <li><%= link_to "入居希望者", new_user_session_path %></li>
+        </ul>
+      </li>
+      <li class="has-child"><a href="#">ログイン</a>
+        <ul>
+        <li><%= link_to "オーナー", new_owner_session_path %></li>
+        <li><%= link_to "入居希望者", new_user_session_path %></li>
+        </ul>
+      </li>
+      <% if owner_signed_in? || user_signed_in? %>
+      <li class="has-child"><a href="#">ログアウト</a>
+        <ul>
+        <li>
+        <% if owner_signed_in? %>
+          <%= link_to "ログアウト", destroy_owner_session_path ,:method => :delete %>
+        <% else user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
+        <% end %>
+        </li>  
+        </ul>
+      </li>
+    </ul>
+    <%end%>
+  </nav>
+  </header>
