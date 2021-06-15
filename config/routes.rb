@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   devise_scope :owner do
     post 'owners/guest_sign_in', to: 'owners/sessions#guest_sign_in'
   end
+  resources :posts
 end

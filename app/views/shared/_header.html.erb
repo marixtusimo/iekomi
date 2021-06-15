@@ -20,6 +20,13 @@
         <li><a href="#">Service-3</a></li>
         </ul>
       </li>
+      <% if owner_signed_in? %>
+      <li class="has-child"><a href="#">物件投稿</a>
+        <ul>
+        <li><%= link_to "物件を投稿する", new_post_path %></li>
+        </ul>
+      </li>
+      <%end%>
       <li class="has-child"><a href="#">新規登録</a>
         <ul>
         <li><%= link_to "オーナー", new_owner_registration_path %></li>
